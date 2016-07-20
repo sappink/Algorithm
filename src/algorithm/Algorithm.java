@@ -26,7 +26,54 @@ public class Algorithm {
 		//RevercingNumbers16a();
 		//FindingMissingCards16b();
 		//OfficialHouse16c();
-		MatrixVectorMultiplication();
+		//MatrixVectorMultiplication();
+		StructuredProgram2_Grading17a();
+	}
+
+
+	private static void StructuredProgram2_Grading17a() {
+		Scanner scanner = new Scanner(System.in);
+		int m,f,r,sum;
+
+		while(true){
+			m = scanner.nextInt();
+			f = scanner.nextInt();
+			r = scanner.nextInt();
+			sum=m+f;
+
+			if(m==-1 && f==-1 && r==-1) break;
+
+			if(m==-1 || f==-1){
+				System.out.println("F");
+				continue;
+			}
+			else if(80 < sum){
+				System.out.println("A");
+				continue;
+			}
+			else if(65 <= sum && sum < 80){
+				System.out.println("B");
+				continue;
+			}
+			else if(50 <= sum && sum < 65){
+				System.out.println("C");
+				continue;
+			}
+			else if(30 <= sum && sum < 50){
+				if(r >= 50){
+					System.out.println("C");
+					continue;
+				}
+				else{
+					System.out.println("D");
+					continue;
+				}
+			}
+			else if(sum < 30){
+				System.out.println("F");
+				continue;
+			}
+		}
 	}
 
 
