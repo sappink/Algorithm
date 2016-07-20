@@ -25,7 +25,37 @@ public class Algorithm {
 		//StructuredProgram15d();
 		//RevercingNumbers16a();
 		//FindingMissingCards16b();
-		OfficialHouse16c();
+		//OfficialHouse16c();
+		MatrixVectorMultiplication();
+	}
+
+
+	private static void MatrixVectorMultiplication() {
+		Scanner scanner = new Scanner(System.in);
+		int n = scanner.nextInt();
+		int m = scanner.nextInt();
+
+		int[][] matrix = new int[n][m];
+		int[] vector = new int[m];
+		int[] answer = new int[n];
+
+		int i,j;
+
+		for(i = 0 ; i<n;i++){
+			for(j = 0; j<m; j++){
+				matrix[i][j] = scanner.nextInt();
+			}
+		}
+		for(i = 0; i<m; i++){
+			vector[i] = scanner.nextInt();
+		}
+
+		for(i = 0; i<n; i++){    //calculation
+			for(j = 0; j<m; j++){
+				answer[i] += matrix[i][j]*vector[j];
+			}
+			System.out.println(answer[i]);
+		}
 	}
 
 
@@ -42,6 +72,17 @@ public class Algorithm {
 			house[b-1][f-1][r-1]+=v;
 		}
 		//output
+		for(int bb=0; bb<4; bb++){
+			if(bb!=0){
+				System.out.println("####################");
+			}
+			for(int ff=0;ff<3;ff++){
+				for(int rr=0;rr<10;rr++){
+					System.out.print(" "+house[bb][ff][rr]);
+				}
+				System.out.println();
+			}
+		}
 	}
 
 
