@@ -2,9 +2,10 @@ package algorithm;
 //ArrayList공부
 //입출력  공부
 
+//http://01027921288.tistory.com/entry/JAVA%EB%91%90%EA%B0%80%EC%A7%80-for-%EB%B0%98%EB%B3%B5%EB%AC%B8
+
 import java.util.ArrayList;
 import java.util.Scanner;
-
 
 public class Algorithm {
 
@@ -27,7 +28,118 @@ public class Algorithm {
 		//FindingMissingCards16b();
 		//OfficialHouse16c();
 		//MatrixVectorMultiplication();
-		StructuredProgram2_Grading17a();
+		//StructuredProgram2_Grading17a();
+		//StructuredProgram2_HOwMAnyWays17b();
+		//StructuedProgram2_Spreadsheet17c();
+		//StructredProgram2_MatrixMultiprication17d();
+		//Character_ToggringCases18a();
+	}
+
+
+	private static void Character_ToggringCases18a() {
+		Scanner scanner = new Scanner(System.in);
+		char[] inputs = scanner.nextLine().toCharArray();//!!
+
+		for(int i = 0; i < inputs.length; i++){
+			if('A' <= inputs[i] && inputs[i] <= 'Z'){
+				inputs[i] =Character.toLowerCase(inputs[i]);
+			}
+			else if('a'<=inputs[i] && inputs[i]<='z'){
+				inputs[i] = Character.toUpperCase(inputs[i]);
+			}
+		}
+
+		System.out.print(inputs);
+	}
+
+
+	private static void StructredProgram2_MatrixMultiprication17d() {
+		Scanner scanner= new Scanner(System.in);
+		int n = scanner.nextInt();
+		int m = scanner.nextInt();
+		int l = scanner.nextInt();
+
+		int[][] matrix1 = new int[n][m];
+		int[][] matrix2 = new int[m][l];
+		int[][] answer = new int[n][l];
+
+		int i,j;
+
+		for(i=0; i<n; i++){ //input1/2
+			for(j=0; j<m; j++){
+				matrix1[i][j] = scanner.nextInt();
+			}
+		}
+		for(i=0; i<m; i++){ //input2/2
+			for(j=0; j<l; j++){
+				matrix2[i][j] = scanner.nextInt();
+			}
+		}
+		for(i=0; i<n; i++){ //calculation & output
+			System.out.println();
+			for(j=0; j<l; j++){
+				for(int z=0; z<m; z++){
+					answer[i][j] += matrix1[i][z] * matrix2[z][j];
+				}
+				System.out.print(answer[i][j] + " ");
+			}
+		}
+
+	}
+
+
+	private static void StructuedProgram2_Spreadsheet17c() {
+		Scanner scanner = new Scanner(System.in);
+		int r = scanner.nextInt();
+		int c = scanner.nextInt();
+		int[][] matrix = new int[r+1][c+1];
+		int i,j;
+
+		for(i=0; i<r; i++){
+			for(j=0; j<c; j++){
+				matrix[i][j] = scanner.nextInt();
+
+				matrix[i][c]+=matrix[i][j];
+				matrix[r][j]+=matrix[i][j];
+			}
+			matrix[r][c]+=matrix[i][c];
+		}
+
+		for(i=0; i<r+1; i++){
+			System.out.println();
+
+			for(j=0; j<c+1; j++){
+				System.out.print(matrix[i][j] + " ");
+			}
+		}
+	}
+
+
+	private static void StructuredProgram2_HOwMAnyWays17b() {
+		Scanner scanner = new Scanner(System.in);
+		int n,x;
+
+		do{
+			int count = 0;
+			n = scanner.nextInt();
+			x = scanner.nextInt();
+			if(n==0 && x==0){
+				break;
+			}
+
+			for(int i = 1; i < n-1; i++){
+				for(int j = i+1; j < n; j++){
+					for(int k = j+1; k <= n; k++){
+
+						if((i+j+k)==x){
+							count++;
+						}
+					}
+				}
+			}
+			System.out.println(count);
+		}while(n !=0 && x != 0);
+
 	}
 
 
