@@ -33,17 +33,39 @@ public class Algorithm {
 		//StructuedProgram2_Spreadsheet17c();
 		//StructredProgram2_MatrixMultiprication17d();
 		//Character_ToggringCases18a();
-		Charactor_SUmOfNumbers18b();
+		//Charactor_SUmOfNumbers18b();
+		Character_COuntingCharacters18c();
+	}
+
+
+	private static void Character_COuntingCharacters18c() {
+		Scanner scanner = new Scanner(System.in);
+		char[] str = scanner.nextLine().toCharArray();
+		int[] count = new int[26];
+
+		for(int i=0;i<str.length; i++){  //to count characters
+			if('A'<=str[i] && str[i]<='Z'){
+				count[str[i]-'A']++;
+			}
+			else if('a'<=str[i] && str[i]<='z'){
+				count[str[i]-'a']++;
+			}
+		}
+
+		for(int i=0; i<26; i++){
+			System.out.println((char)(i+'a') +" : " + count[i]);
+		}
 	}
 
 
 	private static void Charactor_SUmOfNumbers18b() {
 		Scanner scanner = new Scanner(System.in);
+		char[] x;
 
-		while(true){
-			char[] x = scanner.nextLine().toCharArray();
+		do{
+			x = scanner.nextLine().toCharArray();
 
-			if(x.equals('0')){
+			if(x[0]-'0'==0){
 				break;
 			}
 
@@ -52,7 +74,7 @@ public class Algorithm {
 		    	sum += x[i]-'0';
 		    }
 		    System.out.println(sum);
-		}
+		}while(x[0]-'0'!=0);
 	}
 
 
