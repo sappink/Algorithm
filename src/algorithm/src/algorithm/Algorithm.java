@@ -33,26 +33,6 @@ public class Algorithm {
 		//StructuedProgram2_Spreadsheet17c();
 		//StructredProgram2_MatrixMultiprication17d();
 		//Character_ToggringCases18a();
-		Charactor_SUmOfNumbers18b();
-	}
-
-
-	private static void Charactor_SUmOfNumbers18b() {
-		Scanner scanner = new Scanner(System.in);
-
-		while(true){
-			char[] x = scanner.nextLine().toCharArray();
-
-			if(x.equals('0')){
-				break;
-			}
-
-			int sum = 0;
-		    for(int i=0; i<x.length; i++){
-		    	sum += x[i]-'0';
-		    }
-		    System.out.println(sum);
-		}
 	}
 
 
